@@ -1,0 +1,4 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/NicolasCastillo1998/mlflow_project_dagshub.dvc

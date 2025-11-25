@@ -1,0 +1,10 @@
+﻿pandas
+numpy
+scikit-learn
+mlflow
+dvc
+dvc[gs]
+dvc[s3]
+pyyaml
+matplotlib
+seaborn

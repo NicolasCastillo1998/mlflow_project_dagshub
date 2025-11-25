@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/nicoo/OneDrive/Escritorio/telco-churn-mlops-starter/mlruns/0/0f40c108d70b4fe7ae48d60a8acede26/artifacts
+end_time: 1761684221473
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0f40c108d70b4fe7ae48d60a8acede26
+run_name: logreg
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761684221410
+status: 4
+tags: []
+user_id: nicoo

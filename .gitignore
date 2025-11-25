@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+models/
+data/processed/
+reports/
+# .dvc/
+.dvc/cache/
+.mlflow/
+/data-file.bin
+/test_file.txt
+/test_public.txt
+/test.txt
+/init.txt
+scripts/data/
+*.csv

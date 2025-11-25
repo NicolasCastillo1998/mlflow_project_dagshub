@@ -1,0 +1,19 @@
+stages:
+  data_prep:
+    cmd: python src/data_prep.py
+    deps:
+      - src/data_prep.py
+      - data/raw/telco_churn.csv
+    outs:
+      - scripts/data/telco_churn_processed.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - scripts/data/telco_churn_processed.csv
+      - params.yaml
+    outs:
+      - scripts/model.joblib
+    metrics:
+      - scripts/metrics.json
