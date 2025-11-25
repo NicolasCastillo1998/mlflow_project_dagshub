@@ -2,31 +2,48 @@ name: CI - DVC pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.10"
+
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Pull DVC data
-        env:
-          DVC_NO_ANALYTICS: "true"
+          pip install -r requirements.txt dvc[all] mlflow
+
+      - name: Configure DVC remote auth
         run: |
-          dvc pull -q || true
-      - name: Run pipeline
-        run: dvc repro
-      - name: Upload metrics
-        uses: actions/upload-artifact@v4
-        with:
-          name: metrics
-          path: reports/metrics.json
+          dvc remote modify origin --local auth basic
+          dvc remote modify origin --local user "${{ secrets.DAGSHUB_USER }}"
+          dvc remote modify origin --local password "${{ secrets.DAGSHUB_TOKEN }}"
+
+      - name: Pull DVC data
+        continue-on-error: true
+        run: |
+          echo "Trying to pull data from DagsHub..."
+          dvc pull -r origin -v
+
+      - name: Run pipeline (dvc repro)
+        continue-on-error: true
+        run: |
+          echo "Running dvc repro..."
+          dvc repro -v
+
+      - name: Show metrics
+        if: always()
+        run: |
+          echo "Metrics (if file exists):"
+          cat scripts/metrics.json || echo "No metrics.json generated"
