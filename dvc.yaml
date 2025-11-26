@@ -15,5 +15,15 @@ stages:
       - params.yaml
     outs:
       - scripts/model.joblib
-    metrics:
       - scripts/metrics.json
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - scripts/model.joblib
+      - scripts/data/telco_churn_processed.csv
+    outs:
+      - artifacts/roc_curve.png
+      - artifacts/confusion_matrix.png
+      - metrics.json

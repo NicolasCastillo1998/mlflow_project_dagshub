@@ -25,8 +25,8 @@ stages:
     deps:
     - path: params.yaml
       hash: md5
-      md5: ab613a8ddf202aa9141999e85b7ca0eb
-      size: 61
+      md5: 79ba6bcddcf876070b13221ff595a77e
+      size: 74
     - path: scripts/data/telco_churn_processed.csv
       hash: md5
       md5: 579ce03523c31ab0b4ffb0e826285c2b
@@ -47,27 +47,31 @@ stages:
   evaluate:
     cmd: python src/evaluate.py
     deps:
-    - path: data/processed/telco_churn_clean.csv
+    - path: scripts/data/telco_churn_processed.csv
       hash: md5
       md5: 579ce03523c31ab0b4ffb0e826285c2b
       size: 277201469
-    - path: models/model.joblib
+    - path: scripts/model.joblib
       hash: md5
       md5: 3803a9f0e447f45c72ec89fafc01143d
       size: 197711
-    - path: params.yaml
-      hash: md5
-      md5: 40295c98b03b00d7c0927182194e2336
-      size: 247
     - path: src/evaluate.py
       hash: md5
-      md5: fe5c6a21038a47475d47ddf2f273127f
-      size: 765
+      md5: ec040541f829a8f8c15684dcb31a793a
+      size: 2352
     outs:
-    - path: reports/roc_curve.png
+    - path: artifacts/confusion_matrix.png
       hash: md5
-      md5: c40497761da7e730dcd004c7e2dcf5f6
-      size: 17580
+      md5: 4f3e7acff41cfbf85f56f80bd1be4d43
+      size: 16756
+    - path: artifacts/roc_curve.png
+      hash: md5
+      md5: 7d666c9fdccb9f5e03ca6bfbb86f4309
+      size: 28351
+    - path: metrics.json
+      hash: md5
+      md5: d9e161a06421b099a8b41684319458f5
+      size: 112
   data_prep:
     cmd: python src/data_prep.py
     deps:
