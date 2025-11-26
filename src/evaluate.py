@@ -1,3 +1,19 @@
+import pandas as pd
+
+# Cargar dataset procesado
+df = pd.read_csv("scripts/data/telco_churn_processed.csv")
+
+# Separar target y features
+y = df["Churn"]
+X = df.drop(columns=["Churn"])
+
+# Dividir en train/test EXACTAMENTE igual que en train.py
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
 import json
 import joblib
 import matplotlib.pyplot as plt
@@ -57,3 +73,13 @@ def evaluate(model_path, X_test, y_test, output_metrics="metrics.json"):
     plt.close()
 
     print("Plots guardados en carpeta artifacts/")
+
+# ---------------- MAIN ----------------
+# Llamar a evaluate() cuando se ejecute el script
+if __name__ == "__main__":
+    evaluate(
+        model_path="scripts/model.joblib",
+        X_test=X_test,
+        y_test=y_test,
+        output_metrics="metrics.json"
+    )
