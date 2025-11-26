@@ -137,8 +137,7 @@ Publica logs y métricas
 El PR sólo puede mergearse si el pipeline pasa correctamente.
 
 5. Iteración colaborativa (feat-branches)
-6. 
-Se trabajó siguiendo buenas prácticas de Gitflow:
+6. Se trabajó siguiendo buenas prácticas de Gitflow:
 
 Ramas creadas:
 feat-ci
