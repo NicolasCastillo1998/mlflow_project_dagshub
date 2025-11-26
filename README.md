@@ -1,6 +1,7 @@
 Proyecto de Machine Learning con MLflow, DVC y GitHub Actions
 
 Autor: Nicolás Castillo
+
 Año: 2025
 
 Este proyecto implementa un pipeline completo de Machine Learning reproducible, utilizando:
