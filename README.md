@@ -48,17 +48,20 @@ El pipeline versionado en dvc.yaml consta de tres etapas principales:
 
 1) data_prep
 Lee el dataset crudo raw/telco_churn.csv.dvc
+
 Aplica encoding, limpieza y escalado
+
 Guarda datos procesados en data/data-file.bin
+
 Reproducible: cualquier cambio en raw dispara el pipeline
 
-2) train
+3) train
 Lee hiperparámetros desde params.yaml
 Entrena un modelo de Logistic Regression
 Guarda model.joblib
 Registra métricas en MLflow
 
-3) evaluate
+4) evaluate
 Genera métricas adicionales:
 Accuracy
 F1-score
