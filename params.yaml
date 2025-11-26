@@ -1,4 +1,4 @@
 model:
-  C: 1.0
+  solver: sag
   class_weight: balanced
   max_iter: 200
