@@ -16,29 +16,53 @@ El objetivo es entrenar, evaluar y comparar modelos para predecir churn en un da
 1. Estructura general del proyecto
 
 ├── data/
+
 │   ├── raw/                    # Dataset original versionado con DVC
+
 │   ├── data-file.bin           # Datos procesados (DVC)
+
 │
+
 ├── scripts/
+
 │   ├── data/                   # Procesados intermedios
+
 │   ├── model.joblib            # Modelo final entrenado
+
 │
+
 ├── artifacts/                  # Métricas y gráficos de evaluación
+
 │   ├── roc_curve.png
+
 │   ├── confusion_matrix.png
+
 │   ├── metrics.json
+
 │
+
 ├── src/
+
 │   ├── train.py                # Entrenamiento del modelo
+
 │   ├── evaluate.py             # Evaluación + plots + métricas
+
 │   ├── data_prep.py            # Procesamiento del dataset
+
 │   ├── utils.py
+
 │
+
 ├── dvc.yaml                    # Pipeline completo de DVC
+
 ├── dvc.lock
+
 ├── params.yaml                 # Hiperparámetros del modelo
+
 ├── .github/workflows/ci.yml    # CI/CD con GitHub Actions
+
 ├── mlruns/                     # MLflow tracking
+
 └── README.md                   # Documentación del proyecto
 
 2. Pipeline de DVC
