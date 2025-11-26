@@ -57,14 +57,20 @@ Reproducible: cualquier cambio en raw dispara el pipeline
 
 3) train
 Lee hiperparámetros desde params.yaml
+
 Entrena un modelo de Logistic Regression
+
 Guarda model.joblib
+
 Registra métricas en MLflow
 
-4) evaluate
+5) evaluate
 Genera métricas adicionales:
+
 Accuracy
+
 F1-score
+
 ROC-AUC
 
 Produce artefactos:
