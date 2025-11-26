@@ -88,10 +88,14 @@ Todos los entrenamientos quedan registrados bajo mlruns/.
 
 Métricas registradas automáticamente:
 auc
+
 accuracy
+
 f1
 Tamaño de train/test
+
 Artefactos de cada modelo
+
 Hiperparámetros utilizados
 
 Esto permite comparar objetivamente cada variante del modelo.
@@ -102,9 +106,13 @@ Se configuró un workflow en:
 .github/workflows/ci.yml
 
 Este job ejecuta automáticamente en cada Pull Request:
+
 Instala dependencias
+
 Autentica DVC contra Dagshub usando Secrets:
+
 DAGSHUB_USER
+
 DAGSHUB_TOKEN
 
 Ejecuta:
@@ -123,10 +131,13 @@ dvc pull
 dvc repro
 
 Verifica que el pipeline NO falle
+
 Publica logs y métricas
+
 El PR sólo puede mergearse si el pipeline pasa correctamente.
 
 5. Iteración colaborativa (feat-branches)
+6. 
 Se trabajó siguiendo buenas prácticas de Gitflow:
 
 Ramas creadas:
