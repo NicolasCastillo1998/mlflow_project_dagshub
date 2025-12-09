@@ -225,3 +225,9 @@ automatización CI/CD
 trazabilidad completa del modelo
 
 Representa un workflow profesional y escalable para machine learning en producción.
+
+## Video Final del Proyecto
+
+El video final del proyecto se encuentra disponible en el siguiente enlace:
+
+https://drive.google.com/file/d/1-21IRL5ayHMi9-Lr9HyxwtD-In_LwvRH/view?usp=sharing
